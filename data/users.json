@@ -1,0 +1,37 @@
+[ {
+  "userId" : "b6a8e1f0-3d92-4e7f-85f8-17e8cf0d2e91",
+  "username" : "Admin",
+  "password" : "Admin123",
+  "email" : "admin@gmail.com",
+  "role" : "Admin"
+}, {
+  "userId" : "c2b8f9e7-48e7-4d0f-b0fc-2d6a77b8d543",
+  "username" : "John",
+  "password" : "password123",
+  "email" : "john.doe@gmail.com",
+  "role" : "User"
+}, {
+  "userId" : "d1a9f8b6-5b6d-4e69-b3c9-3b6a1a7e2cd8",
+  "username" : "Jane",
+  "password" : "12345jane",
+  "email" : "jane.smith@gmail.com",
+  "role" : "User"
+}, {
+  "userId" : "f7a6c2b5-1e3d-43b2-b1b7-2b9f9e1f9b23",
+  "username" : "Alice",
+  "password" : "secure3455",
+  "email" : "alice.walker@gmail.com",
+  "role" : "User"
+}, {
+  "userId" : "a3c9d1e4-9b2d-46e5-a8f2-4b7d2a8e7f64",
+  "username" : "Bob",
+  "password" : "bob1234",
+  "email" : "bob.jones@gmail.com",
+  "role" : "User"
+}, {
+  "userId" : "1aa63fce-d053-4cd9-933d-1922f8565c33",
+  "username" : "test",
+  "password" : "Test12345",
+  "email" : "test@gmail.vom",
+  "role" : "User"
+} ]
