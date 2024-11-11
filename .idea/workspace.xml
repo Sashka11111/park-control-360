@@ -4,44 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9107911f-d5a6-45b1-a32b-624734e1ac5f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/2/924f089edb4af5ee45c8a9d1129cd28e2b368138" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/2/924f089edb4af5ee45c8a9d1129cd28e2b368138" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ParkControl.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/categories.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parking_spots.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parking_tickets.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/users.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/jackson-annotations-2.16.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/jackson-core-2.16.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/jackson-databind-2.16.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/domain/model/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/domain/model/ParkingSpot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/domain/model/ParkingTicket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/domain/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/domain/validation/UserInputHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/domain/validation/ValidationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/presentation/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/presentation/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/CategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/ParkingSpotService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/ParkingTicketService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/operations/AuthorizationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/operations/DeleteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/operations/EditService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/operations/RegistrationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/operations/SearchService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/util/JsonDataReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/util/JsonDataWriter.java" afterDir="false" />
-    </list>
+    <list default="true" id="9107911f-d5a6-45b1-a32b-624734e1ac5f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +36,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/1/IdeaProjects/ParkControl/libs/jackson-databind-2.16.1.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -110,7 +73,7 @@
       <workItem from="1731325414877" duration="3884000" />
       <workItem from="1731330924728" duration="728000" />
       <workItem from="1731333538045" duration="11301000" />
-      <workItem from="1731348099710" duration="309000" />
+      <workItem from="1731348099710" duration="627000" />
     </task>
     <servers />
   </component>
