@@ -1,6 +1,4 @@
 
-=
-src/Main.java,9\2\924f089edb4af5ee45c8a9d1129cd28e2b368138
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
@@ -46,3 +44,13 @@ c
 3src/com/parkcontrol/service/ParkingSpotService.java,b\d\bd58a925e3555de0641d1b3ed203e964352aebdd
 `
 0src/com/parkcontrol/service/CategoryService.java,3\d\3d0e0513e08a704599bb32716d4a0ffa36c40df0
+D
+data/categories.json,c\0\c0c55fe51c1019cdc63f9ba41df82e4c5041ccdd
+^
+.src/com/parkcontrol/service/util/FileUtil.java,1\d\1deac53cc8f980eb2ce5a02157607874fc7f1bb8
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+?
+ParkControl.iml,3\1\31766c340ba853a6749b9ffad1e0f1d6e28a021f

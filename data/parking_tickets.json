@@ -1,34 +1,92 @@
 [
   {
-    "sessionId": "7b9e8c7d-4d2f-4f1e-9a6e-8f4d7e8c3f2d",
-    "userId": "b6a8e1f0-3d92-4e7f-85f8-17e8cf0d2e91",
-    "parkingSpotId": "d1c993f2-123f-4bfa-93b8-22f1e123f4ab",
-    "startTime": "2024-11-10T08:30:00",
-    "endTime": "2024-11-10T10:30:00",
-    "totalAmount": 5.0
+    "ticketId": "5eecd8d6-49f1-4f4b-a2ae-3e2bc872d9a6",
+    "vehicleLicensePlate": "ABC1000",
+    "parkingSpotId": "f02db573-22ec-48ea-bfa6-8e0e29d30d9b",
+    "startTime": "2024-11-12T13:00:00",
+    "expirationTime": "2024-11-12T15:00:00",
+    "ratePerHour": 2.5,
+    "userId": "b6a8e1f0-3d92-4e7f-85f8-17e8cf0d2e91"
   },
   {
-    "sessionId": "8c7d3b5e-9f8c-4f7d-b2a8-9f0d7e4c3f1a",
-    "userId": "c2b8f9e7-48e7-4d0f-b0fc-2d6a77b8d543",
-    "parkingSpotId": "d59f35e4-7856-4c9f-b63f-1fa2d8a342f3",
-    "startTime": "2024-11-10T09:00:00",
-    "endTime": "2024-11-10T11:00:00",
-    "totalAmount": 7.5
+    "ticketId": "9bc43153-631d-4ed2-a705-fdb7e537fbd8",
+    "vehicleLicensePlate": "ABC1001",
+    "parkingSpotId": "1dbec03c-ea29-420b-8e3c-676d1b6ebd17",
+    "startTime": "2024-11-12T12:00:00",
+    "expirationTime": "2024-11-12T14:00:00",
+    "ratePerHour": 3.0,
+    "userId": "c2b8f9e7-48e7-4d0f-b0fc-2d6a77b8d543"
   },
   {
-    "sessionId": "9a7d6b4e-3c5f-4b8d-7d3e-1c8f9e4d2b6a",
-    "userId": "d1a9f8b6-5b6d-4e69-b3c9-3b6a1a7e2cd8",
-    "parkingSpotId": "a8adfa2e-98ed-4569-99d4-302fa6f3f3a3",
-    "startTime": "2024-11-10T10:15:00",
-    "endTime": "2024-11-10T12:15:00",
-    "totalAmount": 10.0
+    "ticketId": "73402b6e-beb7-42e4-a3ea-01b26e7f0f8f",
+    "vehicleLicensePlate": "ABC1002",
+    "parkingSpotId": "8e4b17e7-bae6-4132-b2b2-b9d4db4f211b",
+    "startTime": "2024-11-12T11:00:00",
+    "expirationTime": "2024-11-12T13:00:00",
+    "ratePerHour": 2.0,
+    "userId": "d1a9f8b6-5b6d-4e69-b3c9-3b6a1a7e2cd8"
   },
   {
-    "sessionId": "a4e7c3b5-1d9f-4e8b-6a7e-8d4f3b2c5f1d",
-    "userId": "f7a6c2b5-1e3d-43b2-b1b7-2b9f9e1f9b23",
-    "parkingSpotId": "d1c993f2-123f-4bfa-93b8-22f1e123f4ab",
-    "startTime": "2024-11-10T08:45:00",
-    "endTime": "2024-11-10T10:45:00",
-    "totalAmount": 5.0
+    "ticketId": "22e7a0c6-423f-4937-9f39-0301d3d63a2b",
+    "vehicleLicensePlate": "ABC1003",
+    "parkingSpotId": "9a61f3e1-4e92-47f2-bf53-95f820c4ae91",
+    "startTime": "2024-11-12T10:00:00",
+    "expirationTime": "2024-11-12T12:00:00",
+    "ratePerHour": 1.5,
+    "userId": "f7a6c2b5-1e3d-43b2-b1b7-2b9f9e1f9b23"
+  },
+  {
+    "ticketId": "7b620531-4b3e-45f4-8f5d-bf9fcbbf570a",
+    "vehicleLicensePlate": "ABC1004",
+    "parkingSpotId": "772d5ecb-2ff0-4977-b504-9c06e9b24e8c",
+    "startTime": "2024-11-12T09:00:00",
+    "expirationTime": "2024-11-12T11:00:00",
+    "ratePerHour": 3.5,
+    "userId": "a3c9d1e4-9b2d-46e5-a8f2-4b7d2a8e7f64"
+  },
+  {
+    "ticketId": "849570b4-c231-404e-b2f9-e3d31dba5c70",
+    "vehicleLicensePlate": "ABC1005",
+    "parkingSpotId": "0a244cb4-b3e9-4b66-a3e9-53db7b68b3b9",
+    "startTime": "2024-11-12T08:00:00",
+    "expirationTime": "2024-11-12T10:00:00",
+    "ratePerHour": 2.8,
+    "userId": "1aa63fce-d053-4cd9-933d-1922f8565c33"
+  },
+  {
+    "ticketId": "53fd91a7-3d1a-464e-a730-1847c3a9d7a2",
+    "vehicleLicensePlate": "ABC1006",
+    "parkingSpotId": "e38b7dff-03fe-418a-9a5b-94b6fa2d07e7",
+    "startTime": "2024-11-12T07:00:00",
+    "expirationTime": "2024-11-12T09:00:00",
+    "ratePerHour": 1.8,
+    "userId": "c2b8f9e7-48e7-4d0f-b0fc-2d6a77b8d543"
+  },
+  {
+    "ticketId": "11c760b9-bb5d-432d-a97a-d5ed39d839b7",
+    "vehicleLicensePlate": "ABC1007",
+    "parkingSpotId": "4d35a254-e9a3-4631-8261-d0e4b75e4e5e",
+    "startTime": "2024-11-12T06:00:00",
+    "expirationTime": "2024-11-12T08:00:00",
+    "ratePerHour": 4.0,
+    "userId": "d1a9f8b6-5b6d-4e69-b3c9-3b6a1a7e2cd8"
+  },
+  {
+    "ticketId": "5503f2cc-4d44-42da-a4d1-33895fa6999f",
+    "vehicleLicensePlate": "ABC1008",
+    "parkingSpotId": "3b9278ae-12c4-4319-9ac3-eec91da1a5a5",
+    "startTime": "2024-11-12T05:00:00",
+    "expirationTime": "2024-11-12T07:00:00",
+    "ratePerHour": 2.2,
+    "userId": "f7a6c2b5-1e3d-43b2-b1b7-2b9f9e1f9b23"
+  },
+  {
+    "ticketId": "58b67a0b-e2e5-4878-b69f-9a7482b9a6e5",
+    "vehicleLicensePlate": "ABC1009",
+    "parkingSpotId": "534bfa60-d0b8-4879-9e47-bcfb6291902a",
+    "startTime": "2024-11-12T04:00:00",
+    "expirationTime": "2024-11-12T06:00:00",
+    "ratePerHour": 2.7,
+    "userId": "a3c9d1e4-9b2d-46e5-a8f2-4b7d2a8e7f64"
   }
 ]

@@ -1,34 +1,31 @@
 package com.parkcontrol.service.operations;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.parkcontrol.service.util.JsonDataReader;
-import com.parkcontrol.domain.model.ParkingTicket;
 import com.parkcontrol.domain.model.ParkingSpot;
+import com.parkcontrol.domain.model.ParkingTicket;
+import com.parkcontrol.domain.model.Category;
 import com.parkcontrol.domain.model.User;
+import com.parkcontrol.service.util.JsonDataReader;
+import com.parkcontrol.service.util.FileUtil;
 import com.parkcontrol.domain.validation.UserInputHandler;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
-import java.util.UUID;
 
 public class DeleteService {
 
   private static final String PARKING_TICKET_FILE_PATH = "data/parking_tickets.json";
+  private static final String CATEGORY_FILE_PATH = "data/categories.json";
   private static final String PARKING_SPOT_FILE_PATH = "data/parking_spots.json";
   private static final String USER_FILE_PATH = "data/users.json";
 
-  // Видалення сесії паркування
-  public static void deleteParkingSession() {
+  public static void deleteParkingTicket() {
     List<ParkingTicket> parkingTickets = JsonDataReader.modelDataJsonReader(PARKING_TICKET_FILE_PATH, ParkingTicket[].class);
 
-    System.out.println("Список доступних сесій паркування:");
+    System.out.println("Список доступних паркувальних квитків:");
     for (ParkingTicket ticket : parkingTickets) {
-      System.out.println("ID сесії: " + ticket.getTicketId() + ", Користувач: " + ticket.getUserId());
+      System.out.println("ID квитка: " + ticket.getTicketId() + ", Транспортний засіб: " + ticket.getVehicleLicensePlate());
     }
 
-    String ticketId = UserInputHandler.getStringInput("Введіть ID сесії, яку хочете видалити:");
+    String ticketId = UserInputHandler.getStringInput("Введіть ID квитка, який хочете видалити:");
 
     ParkingTicket selectedTicket = parkingTickets.stream()
         .filter(ticket -> ticket.getTicketId().toString().equals(ticketId))
@@ -37,23 +34,51 @@ public class DeleteService {
 
     if (selectedTicket != null) {
       parkingTickets.remove(selectedTicket);
-      saveToFile(PARKING_TICKET_FILE_PATH, parkingTickets);
-      System.out.println("Сесію паркування успішно видалено.");
+      FileUtil.saveToFile(PARKING_TICKET_FILE_PATH, parkingTickets);
+      System.out.println("Паркувальний квиток успішно видалено.");
     } else {
-      System.out.println("Сесію паркування з введеним ID не знайдено.");
+      System.out.println("Квиток з введеним ID не знайдено.");
     }
   }
 
-  // Видалення паркувального місця
+  public static void deleteParkingCategory() {
+    List<Category> categories = JsonDataReader.modelDataJsonReader(CATEGORY_FILE_PATH, Category[].class);
+
+    System.out.println("Список доступних категорій:");
+    for (Category category : categories) {
+      System.out.println("ID категорії: " + category.getId() + ", Назва: " + category.getName());
+    }
+
+    String categoryId = UserInputHandler.getStringInput("Введіть ID категорії, яку хочете видалити:");
+
+    Category selectedCategory = categories.stream()
+        .filter(category -> category.getId().toString().equals(categoryId))
+        .findFirst()
+        .orElse(null);
+
+    if (selectedCategory != null) {
+      categories.remove(selectedCategory);
+      FileUtil.saveToFile(CATEGORY_FILE_PATH, categories);
+      System.out.println("Категорію успішно видалено.");
+    } else {
+      System.out.println("Категорію з введеним ID не знайдено.");
+    }
+  }
+
   public static void deleteParkingSpot() {
     List<ParkingSpot> parkingSpots = JsonDataReader.modelDataJsonReader(PARKING_SPOT_FILE_PATH, ParkingSpot[].class);
 
-    System.out.println("Список доступних паркувальних місць:");
-    for (ParkingSpot spot : parkingSpots) {
-      System.out.println("ID місця: " + spot.getSpotId() + ", Номер: " + spot.getSpotNumber());
+    if (parkingSpots.isEmpty()) {
+      System.out.println("Список паркувальних місць порожній.");
+      return;
     }
 
-    String spotId = UserInputHandler.getStringInput("Введіть ID місця, яке хочете видалити:");
+    System.out.println("Список доступних паркувальних місць:");
+    for (ParkingSpot spot : parkingSpots) {
+      System.out.println("ID місця: " + spot.getSpotId() + ", Номер місця: " + spot.getSpotNumber());
+    }
+
+    String spotId = UserInputHandler.getStringInput("Введіть ID паркувального місця для видалення:");
 
     ParkingSpot selectedSpot = parkingSpots.stream()
         .filter(spot -> spot.getSpotId().toString().equals(spotId))
@@ -62,23 +87,28 @@ public class DeleteService {
 
     if (selectedSpot != null) {
       parkingSpots.remove(selectedSpot);
-      saveToFile(PARKING_SPOT_FILE_PATH, parkingSpots);
+      FileUtil.saveToFile(PARKING_SPOT_FILE_PATH, parkingSpots);
       System.out.println("Паркувальне місце успішно видалено.");
     } else {
-      System.out.println("Паркувальне місце з введеним ID не знайдено.");
+      System.out.println("Паркувальне місце з таким ID не знайдено.");
     }
   }
 
-  // Видалення користувача
+
   public static void deleteUser() {
     List<User> users = JsonDataReader.modelDataJsonReader(USER_FILE_PATH, User[].class);
+
+    if (users.isEmpty()) {
+      System.out.println("Список користувачів порожній.");
+      return;
+    }
 
     System.out.println("Список користувачів:");
     for (User user : users) {
       System.out.println("ID користувача: " + user.getUserId() + ", Ім'я: " + user.getUsername());
     }
 
-    String userId = UserInputHandler.getStringInput("Введіть ID користувача, якого хочете видалити:");
+    String userId = UserInputHandler.getStringInput("Введіть ID користувача для видалення:");
 
     User selectedUser = users.stream()
         .filter(user -> user.getUserId().toString().equals(userId))
@@ -87,21 +117,11 @@ public class DeleteService {
 
     if (selectedUser != null) {
       users.remove(selectedUser);
-      saveToFile(USER_FILE_PATH, users);
+      FileUtil.saveToFile(USER_FILE_PATH, users);
       System.out.println("Користувача успішно видалено.");
     } else {
-      System.out.println("Користувача з введеним ID не знайдено.");
+      System.out.println("Користувача з таким ID не знайдено.");
     }
   }
 
-  // Загальний метод для збереження даних у файл
-  private static <T> void saveToFile(String filePath, List<T> dataList) {
-    try {
-      ObjectMapper objectMapper = new ObjectMapper();
-      objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-      objectMapper.writeValue(new File(filePath), dataList);
-    } catch (IOException e) {
-      System.out.println("Помилка при збереженні оновлених даних: " + e.getMessage());
-    }
-  }
 }

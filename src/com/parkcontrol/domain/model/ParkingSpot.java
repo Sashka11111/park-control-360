@@ -1,25 +1,27 @@
 package com.parkcontrol.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.UUID;
 
 public class ParkingSpot {
   private UUID spotId;         // UUID для ідентифікації місця
   private int spotNumber;      // Номер паркувального місця
+
+  @JsonProperty("isOccupied")  // Анотація для відповідності полю в JSON
   private boolean isOccupied;  // Чи зайняте місце
+
   private double ratePerHour;  // Ставка за годину
   private UUID categoryId;     // ID категорії паркувального місця
-  // Конструктор за замовчуванням
 
   public ParkingSpot() {
   }
 
-  // Конструктор, який генерує UUID, приймає номер місця, ставку та ID категорії
   public ParkingSpot(int spotNumber, double ratePerHour, UUID categoryId) {
-    this.spotId = UUID.randomUUID(); // Генерація нового UUID для місця
+    this.spotId = UUID.randomUUID();
     this.spotNumber = spotNumber;
-    this.isOccupied = false; // За замовчуванням місце вільне
+    this.isOccupied = false;
     this.ratePerHour = ratePerHour;
-    this.categoryId = categoryId; // Встановлення ID категорії
+    this.categoryId = categoryId;
   }
 
   public UUID getSpotId() {

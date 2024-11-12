@@ -4,69 +4,69 @@
     "spotNumber": 1,
     "isOccupied": false,
     "ratePerHour": 2.5,
-    "categoryId": "e1d245f7-10bc-4a61-b4a9-99a23a98b4e7"
+    "categoryId": "fbcac97c-18fa-44a6-9eb5-26d7c974a1d9"
   },
   {
     "spotId": "1dbec03c-ea29-420b-8e3c-676d1b6ebd17",
     "spotNumber": 2,
     "isOccupied": false,
     "ratePerHour": 3.0,
-    "categoryId": "7d1dfbb3-6ad3-4592-908e-1be173dd5b93"
+    "categoryId": "2b7ab219-59c6-40ea-9ab7-1cc83e0e2e8c"
   },
   {
     "spotId": "8e4b17e7-bae6-4132-b2b2-b9d4db4f211b",
     "spotNumber": 3,
     "isOccupied": true,
     "ratePerHour": 2.0,
-    "categoryId": "7d1dfbb3-6ad3-4592-908e-1be173dd5b93"
+    "categoryId": "2b7ab219-59c6-40ea-9ab7-1cc83e0e2e8c"
   },
   {
     "spotId": "9a61f3e1-4e92-47f2-bf53-95f820c4ae91",
     "spotNumber": 4,
     "isOccupied": false,
     "ratePerHour": 1.5,
-    "categoryId": "e1d245f7-10bc-4a61-b4a9-99a23a98b4e7"
+    "categoryId": "fbcac97c-18fa-44a6-9eb5-26d7c974a1d9"
   },
   {
     "spotId": "772d5ecb-2ff0-4977-b504-9c06e9b24e8c",
     "spotNumber": 5,
     "isOccupied": true,
     "ratePerHour": 3.5,
-    "categoryId": "dcb37277-81ae-4509-8fe9-7cd5a11c0e5e"
+    "categoryId": "0c385ec5-5c7a-45ca-bd0d-b7a8789905e9"
   },
   {
     "spotId": "0a244cb4-b3e9-4b66-a3e9-53db7b68b3b9",
     "spotNumber": 6,
     "isOccupied": false,
     "ratePerHour": 2.8,
-    "categoryId": "7d1dfbb3-6ad3-4592-908e-1be173dd5b93"
+    "categoryId": "2b7ab219-59c6-40ea-9ab7-1cc83e0e2e8c"
   },
   {
     "spotId": "e38b7dff-03fe-418a-9a5b-94b6fa2d07e7",
     "spotNumber": 7,
     "isOccupied": false,
     "ratePerHour": 1.8,
-    "categoryId": "e1d245f7-10bc-4a61-b4a9-99a23a98b4e7"
+    "categoryId": "fbcac97c-18fa-44a6-9eb5-26d7c974a1d9"
   },
   {
     "spotId": "4d35a254-e9a3-4631-8261-d0e4b75e4e5e",
     "spotNumber": 8,
     "isOccupied": true,
     "ratePerHour": 4.0,
-    "categoryId": "dcb37277-81ae-4509-8fe9-7cd5a11c0e5e"
+    "categoryId": "0c385ec5-5c7a-45ca-bd0d-b7a8789905e9"
   },
   {
     "spotId": "3b9278ae-12c4-4319-9ac3-eec91da1a5a5",
     "spotNumber": 9,
     "isOccupied": false,
     "ratePerHour": 2.2,
-    "categoryId": "e1d245f7-10bc-4a61-b4a9-99a23a98b4e7"
+    "categoryId": "fbcac97c-18fa-44a6-9eb5-26d7c974a1d9"
   },
   {
     "spotId": "534bfa60-d0b8-4879-9e47-bcfb6291902a",
     "spotNumber": 10,
     "isOccupied": false,
     "ratePerHour": 2.7,
-    "categoryId": "7d1dfbb3-6ad3-4592-908e-1be173dd5b93"
+    "categoryId": "2b7ab219-59c6-40ea-9ab7-1cc83e0e2e8c"
   }
 ]

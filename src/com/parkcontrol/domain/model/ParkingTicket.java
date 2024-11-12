@@ -4,66 +4,89 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class ParkingTicket {
-  private String ticketId;
-  private String userId;
-  private String parkingSpotId;
-  private LocalDateTime issueTime;
-  private LocalDateTime expirationTime;
-  private double amountDue;
 
+  private UUID ticketId; // Унікальний ID паркувального квитка
+  private String vehicleLicensePlate; // Номер транспортного засобу
+  private String parkingSpotId; // ID паркувального місця
+  private LocalDateTime startTime; // Час початку парковки
+  private LocalDateTime expirationTime; // Час закінчення парковки
+  private UUID userId; // ID користувача, який запаркував транспортний засіб
+
+  // Конструктор
+  public ParkingTicket(String vehicleLicensePlate, String parkingSpotId, LocalDateTime startTime, UUID userId, double hours) {
+    this.ticketId = UUID.randomUUID(); // Генерація унікального ID для квитка
+    this.vehicleLicensePlate = vehicleLicensePlate;
+    this.parkingSpotId = parkingSpotId;
+    this.startTime = startTime;
+    this.userId = userId; // Ідентифікатор користувача
+    this.expirationTime = startTime.plusHours((long) hours); // Розрахунок часу закінчення парковки
+  }
+  // Конструктор без параметрів
   public ParkingTicket() {
   }
-  public ParkingTicket(String userId, String parkingSpotId, LocalDateTime issueTime) {
-    this.ticketId = UUID.randomUUID().toString();
-    this.userId = userId;
+  // Геттери та сеттери
+  public UUID getTicketId() {
+    return ticketId;
+  }
+
+  public void setTicketId(UUID ticketId) {
+    this.ticketId = ticketId;
+  }
+
+  public String getVehicleLicensePlate() {
+    return vehicleLicensePlate;
+  }
+
+  public void setVehicleLicensePlate(String vehicleLicensePlate) {
+    this.vehicleLicensePlate = vehicleLicensePlate;
+  }
+
+  public String getParkingSpotId() {
+    return parkingSpotId;
+  }
+
+  public void setParkingSpotId(String parkingSpotId) {
     this.parkingSpotId = parkingSpotId;
-    this.issueTime = issueTime;
-    this.expirationTime = null; // Квиток ще дійсний
-    this.amountDue = 0.0;
   }
 
-  public String getTicketId() { return ticketId; }
+  public LocalDateTime getStartTime() {
+    return startTime;
+  }
 
-  public String getUserId() { return userId; }
-  public void setUserId(String userId) { this.userId = userId; }
+  public void setStartTime(LocalDateTime startTime) {
+    this.startTime = startTime;
+  }
 
-  public String getParkingSpotId() { return parkingSpotId; }
-  public void setParkingSpotId(String parkingSpotId) { this.parkingSpotId = parkingSpotId; }
+  public LocalDateTime getExpirationTime() {
+    return expirationTime;
+  }
 
-  public LocalDateTime getIssueTime() { return issueTime; }
-  public void setIssueTime(LocalDateTime issueTime) { this.issueTime = issueTime; }
-
-  public LocalDateTime getExpirationTime() { return expirationTime; }
   public void setExpirationTime(LocalDateTime expirationTime) {
-    if (expirationTime.isBefore(issueTime)) {
-      throw new IllegalArgumentException("Expiration time cannot be before issue time.");
-    }
     this.expirationTime = expirationTime;
-    calculateAmountDue();
   }
 
-  public double getAmountDue() { return amountDue; }
-
-  private void calculateAmountDue() {
-    if (expirationTime != null) {
-      long hours = java.time.Duration.between(issueTime, expirationTime).toHours();
-      this.amountDue = hours * getHourlyRate();
-    }
+  public UUID getUserId() {
+    return userId;
   }
 
-  private double getHourlyRate() {
-    return 5.0; // Задайте ставку, наприклад, 5.0 одиниць валюти за годину
+  public void setUserId(UUID userId) {
+    this.userId = userId;
+  }
+
+  // Метод для перевірки, чи закінчився час парковки
+  public boolean isExpired() {
+    return expirationTime.isBefore(LocalDateTime.now());
   }
 
   @Override
   public String toString() {
     return "ParkingTicket{" +
-        "ticketId='" + ticketId + '\'' +
-        ", userId='" + userId + '\'' +
+        "ticketId=" + ticketId +
+        ", vehicleLicensePlate='" + vehicleLicensePlate + '\'' +
         ", parkingSpotId='" + parkingSpotId + '\'' +
-        ", issueTime=" + issueTime +
+        ", startTime=" + startTime +
         ", expirationTime=" + expirationTime +
-        ", amountDue=" + amountDue +
+        ", userId=" + userId +
         '}';
   }
 }
