@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.parkcontrol.domain.model.ParkingSpot;
 import com.parkcontrol.domain.model.Category;
+import com.parkcontrol.domain.validation.ParkingSpotValidationService;
 import com.parkcontrol.service.util.JsonDataReader;
 
 import java.io.File;
@@ -16,12 +17,11 @@ import java.util.stream.Collectors;
 public class ParkingSpotService {
 
   private static final String PARKING_SPOTS_FILE_PATH = "data/parking_spots.json";
-  private static final String CATEGORIES_FILE_PATH = "data/categories.json"; // Файл з категоріями
+  private static final String CATEGORIES_FILE_PATH = "data/categories.json";
   private static List<ParkingSpot> parkingSpots;
-  private static List<Category> categories; // Зберігаємо список категорій
+  private static List<Category> categories;
 
   static {
-    // Ініціалізація списку паркувальних місць і категорій при запуску програми
     parkingSpots = JsonDataReader.modelDataJsonReader(PARKING_SPOTS_FILE_PATH, ParkingSpot[].class);
     categories = JsonDataReader.modelDataJsonReader(CATEGORIES_FILE_PATH, Category[].class);
   }
@@ -30,130 +30,133 @@ public class ParkingSpotService {
     displayParkingSpots(parkingSpots);
   }
 
-  // Метод для відображення паркувальних місць
   public static void displayParkingSpots(List<ParkingSpot> parkingSpots) {
-    if (parkingSpots.isEmpty()) {
+    if (!ParkingSpotValidationService.isParkingSpotsListValid(parkingSpots)) {
       System.out.println("Список паркувальних місць порожній.");
-    } else {
-      System.out.println("Список паркувальних місць:");
-      for (ParkingSpot parkingSpot : parkingSpots) {
-        System.out.println("Номер місця: " + parkingSpot.getSpotNumber());
-        System.out.println("Ставка за годину: " + parkingSpot.getRatePerHour());
-        System.out.println("Чи зайняте: " + (parkingSpot.isOccupied() ? "Так" : "Ні"));
-        // Замість ID категорії виводимо назву
-        Category category = findCategoryById(parkingSpot.getCategoryId());
-        if (category != null) {
-          System.out.println("Категорія: " + category.getName());
-        } else {
-          System.out.println("Категорія не знайдена");
-        }
-        System.out.println(); // Для розділення між записами
-      }
+      return;
     }
+
+    parkingSpots.forEach(parkingSpot -> {
+      System.out.println("ID: " + parkingSpot.getSpotId());
+      System.out.println("Номер місця: " + parkingSpot.getSpotNumber());
+      System.out.println("Ставка за годину: " + parkingSpot.getRatePerHour());
+      System.out.println("Чи зайняте: " + (parkingSpot.isOccupied() ? "Так" : "Ні"));
+      Category category = findCategoryById(parkingSpot.getCategoryId());
+      System.out.println("Категорія: " + (category != null ? category.getName() : "Категорія не знайдена"));
+      System.out.println(); // Порожній рядок для кращої читабельності
+    });
   }
 
-  // Метод для перегляду вільних паркувальних місць
+  public static Category findCategoryById(UUID categoryId) {
+    return categories.stream()
+        .filter(category -> category.getId().equals(categoryId))
+        .findFirst()
+        .orElse(null);
+  }
+
   public static void displayAvailableParkingSpots() {
     List<ParkingSpot> availableSpots = parkingSpots.stream()
-        .filter(parkingSpot -> !parkingSpot.isOccupied()) // Фільтруємо по вільним місцям
+        .filter(spot -> !spot.isOccupied())
         .collect(Collectors.toList());
 
     if (availableSpots.isEmpty()) {
       System.out.println("Немає вільних паркувальних місць.");
-    } else {
-      System.out.println("Вільні паркувальні місця:");
-      for (ParkingSpot parkingSpot : availableSpots) {
-        System.out.println("Номер місця: " + parkingSpot.getSpotNumber());
-        System.out.println("Ставка за годину: " + parkingSpot.getRatePerHour());
-        // Замість ID категорії виводимо назву
-        Category category = findCategoryById(parkingSpot.getCategoryId());
-        if (category != null) {
-          System.out.println("Категорія: " + category.getName());
-        } else {
-          System.out.println("Категорія не знайдена");
-        }
-        System.out.println(); // Для розділення між записами
-      }
+      return;
     }
+
+    System.out.println("Вільні паркувальні місця:");
+    displayParkingSpots(availableSpots);
   }
 
-  // Метод для додавання нового паркувального місця
   public static void addParkingSpot() {
     Scanner scanner = new Scanner(System.in);
-
-    // Генерація нового унікального ID для паркувального місця
-    UUID newParkingSpotId = UUID.randomUUID();
-
-    // Запитати користувача про дані нового паркувального місця
     System.out.println("Додавання нового паркувального місця");
 
-    int spotNumber;
-    double ratePerHour;
-    UUID categoryId;
+    UUID newParkingSpotId = UUID.randomUUID();
+    int spotNumber = getValidatedSpotNumber(scanner);
+    double ratePerHour = getValidatedRatePerHour(scanner);
+    UUID categoryId = getValidatedCategoryId(scanner);
 
-    // Запит номеру місця
-    do {
-      System.out.print("Введіть номер паркувального місця: ");
-      spotNumber = scanner.nextInt();
-
-      if (spotNumber <= 0) {
-        System.out.println("Номер місця повинен бути більшим за нуль.");
-      } else {
-        break;
-      }
-    } while (true);
-
-    // Запит ставки за годину
-    do {
-      System.out.print("Введіть ставку за годину: ");
-      ratePerHour = scanner.nextDouble();
-
-      if (ratePerHour <= 0) {
-        System.out.println("Ставка повинна бути більшою за нуль.");
-      } else {
-        break;
-      }
-    } while (true);
-
-    // Запит ID категорії
-    System.out.print("Введіть ID категорії паркувального місця: ");
-    categoryId = UUID.fromString(scanner.next());
-
-    // Генерація випадкового значення для статусу зайнятості місця
-    boolean isOccupied = false;
-
-    // Створення нового паркувального місця
     ParkingSpot newParkingSpot = new ParkingSpot(spotNumber, ratePerHour, categoryId);
     newParkingSpot.setSpotId(newParkingSpotId);
-    newParkingSpot.setOccupied(isOccupied);
+    newParkingSpot.setOccupied(false);
 
-    // Додаємо нове паркувальне місце до списку
     parkingSpots.add(newParkingSpot);
-
-    // Зберегти оновлені дані у файлі JSON
     saveParkingSpotsToJson();
 
     System.out.println("Нове паркувальне місце додано успішно.");
   }
 
-  // Метод для пошуку категорії за ID
-  public static Category findCategoryById(UUID categoryId) {
-    for (Category category : categories) {
-      if (category.getId().equals(categoryId)) {
-        return category;
+  private static int getValidatedSpotNumber(Scanner scanner) {
+    Integer spotNumber;
+    while (true) {
+      System.out.print("Введіть номер паркувального місця: ");
+      String input = scanner.next();
+      if (!ParkingSpotValidationService.isUUIDValid(input)) {
+        System.out.println("Некоректний номер місця.");
+        continue;
+      }
+
+      spotNumber = Integer.parseInt(input);
+      if (!ParkingSpotValidationService.isSpotNumberValid(spotNumber)) {
+        System.out.println("Номер місця повинен бути більшим за нуль.");
+      } else if (!ParkingSpotValidationService.isSpotNumberUnique(parkingSpots, spotNumber)) {
+        System.out.println("Паркувальне місце з таким номером вже існує.");
+      } else {
+        break;
       }
     }
-    return null;
+    return spotNumber;
   }
 
-  // Метод для збереження паркувальних місць у файл JSON
+  private static double getValidatedRatePerHour(Scanner scanner) {
+    Double ratePerHour;
+    while (true) {
+      System.out.print("Введіть ставку за годину: ");
+      String input = scanner.next();
+      if (!ParkingSpotValidationService.isUUIDValid(input)) {
+        System.out.println("Некоректна ставка за годину");
+        continue;
+      }
+
+      ratePerHour = Double.parseDouble(input);
+      if (!ParkingSpotValidationService.isRatePerHourValid(ratePerHour)) {
+        System.out.println("Ставка повинна бути більшою за нуль.");
+      } else {
+        break;
+      }
+    }
+    return ratePerHour;
+  }
+
+  private static UUID getValidatedCategoryId(Scanner scanner) {
+    UUID categoryId;
+    while (true) {
+      System.out.print("Введіть ID категорії паркувального місця: ");
+      String input = scanner.next();
+      if (!ParkingSpotValidationService.isUUIDValid(input)) {
+        System.out.println("Некоректний UUID. Спробуйте ще раз.");
+        continue;
+      }
+
+      categoryId = UUID.fromString(input);
+      if (!ParkingSpotValidationService.isCategoryValid(categories, categoryId)) {
+        System.out.println("Категорія з таким ID не знайдена.");
+      } else {
+        break;
+      }
+    }
+    return categoryId;
+  }
+
   private static void saveParkingSpotsToJson() {
     try {
       ObjectMapper objectMapper = new ObjectMapper();
       objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
       objectMapper.writeValue(new File(PARKING_SPOTS_FILE_PATH), parkingSpots);
     } catch (IOException e) {
-      System.out.println("Помилка при збереженні паркувальних місць у файл JSON: " + e.getMessage());
+      System.err.println("Помилка при збереженні паркувальних місць у файл JSON: " + e.getMessage());
     }
   }
 }
+

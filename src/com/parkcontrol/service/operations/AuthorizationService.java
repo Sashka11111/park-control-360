@@ -3,8 +3,10 @@ package com.parkcontrol.service.operations;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.parkcontrol.domain.model.User;
 import com.parkcontrol.domain.validation.UserInputHandler;
+import com.parkcontrol.domain.validation.UserValidationService;
 import com.parkcontrol.presentation.Application;
 import com.parkcontrol.presentation.Menu;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
@@ -15,25 +17,40 @@ public class AuthorizationService {
   private static final String USERS_FILE_PATH = "Data/users.json";
   private static final UserInputHandler inputHandler = new UserInputHandler();
 
-  // Метод для авторизації користувача
   public static void authorization() {
     String role = getRoleFromUser();
-    String username = getUsernameFromUser();
-    String password = getPasswordFromUser();
+    String username = getValidatedUsernameFromUser();
+    String password = getValidatedPasswordFromUser();
 
     List<User> users = readUsersFromJson(USERS_FILE_PATH);
-    User user = findUserByUsernameAndRole(users, username, role);
 
-    if (user != null && user.getPassword().equals(password)) {
-      Application.currentUser = user;
-      System.out.println("Авторизація пройшла успішно.");
-      navigateToMenu();
-    } else {
-      handleAuthorizationFailure(user);
+    if (users.isEmpty()) {
+      System.out.println("Список користувачів порожній. Зверніться до адміністратора.");
+      return;
     }
+
+    User user = findUserByUsername(users, username);
+
+    if (user == null) {
+      System.out.println("Користувача з таким логіном не існує. Спробуйте ще раз.");
+      return;
+    }
+
+    if (!user.getRole().equalsIgnoreCase(role)) {
+      System.out.println("Роль не відповідає вказаному логіну. Спробуйте ще раз.");
+      return;
+    }
+
+    if (!user.getPassword().equals(password)) {
+      System.out.println("Неправильний пароль. Спробуйте ще раз.");
+      return;
+    }
+
+    Application.currentUser = user;
+    System.out.println("Авторизація пройшла успішно.");
+    navigateToMenu();
   }
 
-  // Метод для отримання ролі користувача
   private static String getRoleFromUser() {
     String role;
     while (true) {
@@ -56,26 +73,39 @@ public class AuthorizationService {
     return role;
   }
 
-  // Метод для отримання логіну користувача
-  private static String getUsernameFromUser() {
-    return inputHandler.getStringInput("Введіть логін:");
+  private static String getValidatedUsernameFromUser() {
+    String username;
+    while (true) {
+      username = inputHandler.getStringInput("Введіть логін:");
+      if (UserValidationService.isNotEmpty(username)) {
+        break;
+      } else {
+        System.out.println("Логін не може бути порожнім. Спробуйте ще раз.");
+      }
+    }
+    return username;
   }
 
-  // Метод для отримання паролю користувача
-  private static String getPasswordFromUser() {
-    return inputHandler.getStringInput("Введіть пароль:");
+  private static String getValidatedPasswordFromUser() {
+    String password;
+    while (true) {
+      password = inputHandler.getStringInput("Введіть пароль:");
+      if (UserValidationService.isValidPassword(password)) {
+        break;
+      } else {
+        System.out.println("Пароль повинен містити хоча б одну велику літеру, одну маленьку літеру, цифру та бути не менше 8 символів. Спробуйте ще раз.");
+      }
+    }
+    return password;
   }
 
-
-  // Метод для пошуку користувача за логіном та роллю
-  private static User findUserByUsernameAndRole(List<User> users, String username, String role) {
+  private static User findUserByUsername(List<User> users, String username) {
     return users.stream()
-        .filter(user -> user.getUsername().equals(username) && user.getRole().equals(role))
+        .filter(user -> user.getUsername().equalsIgnoreCase(username))
         .findFirst()
         .orElse(null);
   }
 
-  // Метод для читання списку користувачів з JSON файлу
   private static List<User> readUsersFromJson(String filePath) {
     ObjectMapper objectMapper = new ObjectMapper();
     try {
@@ -86,16 +116,6 @@ public class AuthorizationService {
     }
   }
 
-  // Метод для обробки помилок авторизації
-  private static void handleAuthorizationFailure(User user) {
-    if (user == null) {
-      System.out.println("Це не ваша роль, спробуйте авторизуватися знову.");
-    } else {
-      System.out.println("Помилка авторизації. Перевірте логін та пароль.");
-    }
-  }
-
-  // Метод для навігації до головного меню
   private static void navigateToMenu() {
     try {
       Menu.show();

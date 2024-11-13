@@ -37,6 +37,7 @@ public class Menu {
         switch (choice) {
           case 1:
             RegistrationService.registration();
+            AuthorizationService.authorization();
             break;
           case 2:
             AuthorizationService.authorization();
@@ -144,7 +145,7 @@ public class Menu {
   private static void showViewMenu() {
     System.out.println("1) Переглянути всі паркувальні місця");
     System.out.println("2) Переглянути вільні місця");
-    System.out.println("3) Переглянути мій квиток");
+    System.out.println("3) Переглянути мої квитки");
     System.out.println("4) Переглянути категорії");
     System.out.println("5) Назад");
 
@@ -172,7 +173,6 @@ public class Menu {
   }
 
   private static void showAddMenu() {
-    System.out.println("Що ви хочете додати?");
     System.out.println("1) Додати нове паркувальне місце");
     System.out.println("2) Додати нову категорію ");
     System.out.println("3) Назад");
@@ -197,9 +197,8 @@ public class Menu {
   private static void showEditMenu() {
     System.out.println("Що ви хочете редагувати?");
     System.out.println("1) Редагувати паркувальне місце");
-    System.out.println("2) Редагувати паркувальний квиток");
-    System.out.println("3) Редагувати категорії");
-    System.out.println("4) Назад");
+    System.out.println("2) Редагувати категорії");
+    System.out.println("3) Назад");
 
     int choice = new UserInputHandler().getIntInput("Ваш вибір: ");
 
@@ -208,12 +207,9 @@ public class Menu {
         EditService.editParkingSpot();
         break;
       case 2:
-        EditService.editParkingTicket();
-        break;
-      case 3:
         EditService.editParkingCategory();
         break;
-      case 4:
+      case 3:
         return;
       default:
         System.out.println("Невірний вибір. Спробуйте ще раз.");
@@ -224,10 +220,9 @@ public class Menu {
   private static void showDeleteMenu() {
     System.out.println("Що ви хочете видалити?");
     System.out.println("1) Видалити паркувальне місце");
-    System.out.println("2) Видалити паркувальний квиток");
-    System.out.println("3) Видалити користувача");
-    System.out.println("4) Видалити категорію");
-    System.out.println("5) Назад");
+    System.out.println("2) Видалити користувача");
+    System.out.println("3) Видалити категорію");
+    System.out.println("4) Назад");
 
     int choice = new UserInputHandler().getIntInput("Ваш вибір: ");
 
@@ -236,15 +231,12 @@ public class Menu {
         DeleteService.deleteParkingSpot();
         break;
       case 2:
-        DeleteService.deleteParkingTicket();
-        break;
-      case 3:
         DeleteService.deleteUser();
         break;
-      case 4:
+      case 3:
         DeleteService.deleteParkingCategory();
         break;
-      case 5:
+      case 4:
         return;
       default:
         System.out.println("Невірний вибір. Спробуйте ще раз.");

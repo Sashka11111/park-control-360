@@ -2,9 +2,8 @@ package com.parkcontrol.service.operations;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.parkcontrol.domain.model.User;
-import com.parkcontrol.domain.validation.ValidationService;
+import com.parkcontrol.domain.validation.UserValidationService;
 import com.parkcontrol.presentation.Application;
-import com.parkcontrol.presentation.Menu;
 import com.parkcontrol.service.util.JsonDataReader;
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +15,7 @@ public class RegistrationService {
 
   private static final String USERS_FILE_PATH = "Data/users.json";
   private static final Scanner scanner = new Scanner(System.in);
-  private static final ValidationService validationService = new ValidationService();
+  private static final UserValidationService validationService = new UserValidationService();
 
   // Метод для реєстрації користувача
   public static void registration() {
@@ -37,7 +36,7 @@ public class RegistrationService {
 
     System.out.println("Реєстрація пройшла успішно.");
 
-    navigateToMenu();
+    navigateToAuthorization();
   }
 
   // Метод для отримання унікального логіну
@@ -106,12 +105,7 @@ public class RegistrationService {
   }
 
   // Метод для навігації до головного меню
-  private static void navigateToMenu() {
-    try {
-      Menu.show();
-    } catch (IllegalAccessException e) {
-      System.err.println("Помилка при відкритті меню: " + e.getMessage());
-      e.printStackTrace();
-    }
+  private static void navigateToAuthorization() {
+    AuthorizationService.authorization();
   }
 }

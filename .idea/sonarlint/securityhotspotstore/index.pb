@@ -14,8 +14,6 @@ a
 data/users.json,7\1\71d12d325892fd8899899cd57d8cd635147d61cd
 G
 data/parking_spots.json,0\9\09babf01a8366f68e7e89b3b3362b207e59b8d60
-l
-<src/com/parkcontrol/domain/validation/ValidationService.java,0\3\032d9b1609c1c21c37c5f08c6e43e05cb2bbe159
 Z
 *src/com/parkcontrol/presentation/Menu.java,6\e\6e3b98522e88b6eede494b35ba9969c5c5a38240
 p
@@ -28,8 +26,6 @@ g
 7src/com/parkcontrol/service/operations/EditService.java,9\8\98b67de184465212dd485a6b768889ab2e1d1890
 i
 9src/com/parkcontrol/service/operations/SearchService.java,c\2\c26dcb3510ba74f12cbc166ad58342091cb53258
-d
-4src/com/parkcontrol/service/util/JsonDataWriter.java,e\4\e4d34e5824a681fd84ebfc339f1b78dd122fa7cd
 i
 9src/com/parkcontrol/service/operations/DeleteService.java,b\e\bee2777dd831dd89924b2f27fe395334b08e9f88
 c
@@ -54,3 +50,13 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ?
 ParkControl.iml,3\1\31766c340ba853a6749b9ffad1e0f1d6e28a021f
+h
+8src/com/parkcontrol/service/util/ObjectMapperConfig.java,2\0\2008ad4c1dcbcdf7beb08f80f32aa1fea2907cb5
+t
+Dsrc/com/parkcontrol/domain/validation/CategoryValidationService.java,7\3\73ca5dae4cf87abdcd1e09a61795b2fce816ae94
+p
+@src/com/parkcontrol/domain/validation/UserValidationService.java,b\7\b7e15197ae9e467f71a94a0494ed8db5f8c01d1d
+w
+Gsrc/com/parkcontrol/domain/validation/ParkingSpotValidationService.java,7\7\7753aeca7377362ac7a050403a4f9eb13717f77d
+y
+Isrc/com/parkcontrol/domain/validation/ParkingTicketValidationService.java,b\5\b51965e4c7657343b5f113e4a7df9100d74da111

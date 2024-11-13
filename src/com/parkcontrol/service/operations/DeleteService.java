@@ -8,38 +8,15 @@ import com.parkcontrol.service.util.JsonDataReader;
 import com.parkcontrol.service.util.FileUtil;
 import com.parkcontrol.domain.validation.UserInputHandler;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 public class DeleteService {
 
-  private static final String PARKING_TICKET_FILE_PATH = "data/parking_tickets.json";
   private static final String CATEGORY_FILE_PATH = "data/categories.json";
   private static final String PARKING_SPOT_FILE_PATH = "data/parking_spots.json";
   private static final String USER_FILE_PATH = "data/users.json";
-
-  public static void deleteParkingTicket() {
-    List<ParkingTicket> parkingTickets = JsonDataReader.modelDataJsonReader(PARKING_TICKET_FILE_PATH, ParkingTicket[].class);
-
-    System.out.println("Список доступних паркувальних квитків:");
-    for (ParkingTicket ticket : parkingTickets) {
-      System.out.println("ID квитка: " + ticket.getTicketId() + ", Транспортний засіб: " + ticket.getVehicleLicensePlate());
-    }
-
-    String ticketId = UserInputHandler.getStringInput("Введіть ID квитка, який хочете видалити:");
-
-    ParkingTicket selectedTicket = parkingTickets.stream()
-        .filter(ticket -> ticket.getTicketId().toString().equals(ticketId))
-        .findFirst()
-        .orElse(null);
-
-    if (selectedTicket != null) {
-      parkingTickets.remove(selectedTicket);
-      FileUtil.saveToFile(PARKING_TICKET_FILE_PATH, parkingTickets);
-      System.out.println("Паркувальний квиток успішно видалено.");
-    } else {
-      System.out.println("Квиток з введеним ID не знайдено.");
-    }
-  }
 
   public static void deleteParkingCategory() {
     List<Category> categories = JsonDataReader.modelDataJsonReader(CATEGORY_FILE_PATH, Category[].class);

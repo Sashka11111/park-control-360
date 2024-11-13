@@ -3,10 +3,13 @@ package com.parkcontrol.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.parkcontrol.domain.model.Category;
-import com.parkcontrol.domain.validation.ValidationService;
+import com.parkcontrol.domain.validation.CategoryValidationService;
+import com.parkcontrol.domain.validation.UserValidationService;
 import com.parkcontrol.service.util.JsonDataReader;
+
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
@@ -19,6 +22,9 @@ public class CategoryService {
   static {
     // Ініціалізація списку категорій при запуску програми
     categories = JsonDataReader.modelDataJsonReader(CATEGORIES_FILE_PATH, Category[].class);
+    if (categories == null) {
+      categories = new ArrayList<>(); // У разі помилки читання створюємо порожній список
+    }
   }
 
   public static void main(String[] args) {
@@ -32,6 +38,7 @@ public class CategoryService {
     } else {
       System.out.println("Список категорій:");
       for (Category category : categories) {
+        System.out.println("ID: " + category.getId());
         System.out.println("Назва: " + category.getName());
         System.out.println(); // Для розділення між записами
       }
@@ -42,29 +49,37 @@ public class CategoryService {
   public static void addCategory() {
     Scanner scanner = new Scanner(System.in);
 
-    // Генерація нового унікального ID для категорії
-    UUID newCategoryId = UUID.randomUUID();
-
-    // Запитати користувача про дані нової категорії
-    System.out.println("Додавання нової категорії");
-
+    UUID newCategoryId;
     String name;
+
+    // Генерація нового унікального ID для категорії
+    do {
+      newCategoryId = UUID.randomUUID();
+      if (!CategoryValidationService.isCategoryIdUnique(categories, newCategoryId)) {
+        System.out.println("Згенеровано повторюваний ID. Спроба знову...");
+      } else {
+        break;
+      }
+    } while (true);
+
+    // Запитати користувача про назву нової категорії
+    System.out.println("Додавання нової категорії");
     do {
       System.out.print("Введіть назву категорії: ");
       name = scanner.nextLine();
 
-      if (!ValidationService.isNotEmpty(name)) {
+      if (!UserValidationService.isNotEmpty(name)) {
         System.out.println("Категорія не може бути порожньою.");
-      } else if (!ValidationService.isValidCategoryName(name)) {
-        System.out.println("Категорія повинна бути до 255 символів.");
-      } else if (!ValidationService.isCategoryNameUnique(categories, name)) {
+      } else if (!CategoryValidationService.isValidCategoryName(name)) {
+        System.out.println("Категорія повинна бути до 50 символів.");
+      } else if (!CategoryValidationService.isCategoryNameUnique(categories, name)) {
         System.out.println("Категорія з такою назвою вже існує.");
       } else {
         break;  // Якщо всі умови виконані, виходимо з циклу
       }
     } while (true);
 
-    // Створюємо новий об'єкт категорії з унікальним ID
+    // Створюємо новий об'єкт категорії
     Category newCategory = new Category(newCategoryId, name);
 
     // Додаємо нову категорію до списку

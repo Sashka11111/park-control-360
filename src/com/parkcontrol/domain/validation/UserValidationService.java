@@ -1,14 +1,11 @@
 package com.parkcontrol.domain.validation;
 
-import com.parkcontrol.domain.model.Category;
 import com.parkcontrol.domain.model.User;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Pattern;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
-public class ValidationService {
+public class UserValidationService {
 
   // Валідація для перевірки, чи не є рядок порожнім
   public static boolean isNotEmpty(String value) {
@@ -21,19 +18,6 @@ public class ValidationService {
     String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
     return Pattern.matches(emailRegex, email);
   }
-
-  // Валідація для перевірки правильності формату дати
-  public static boolean isValidDateFormat(String date, String format) {
-    if (date == null || format == null) return false;
-    SimpleDateFormat sdf = new SimpleDateFormat(format);
-    sdf.setLenient(false);  // Вимикає "м'яке" парсинг (наприклад, 31 квітня не стане 1 травня)
-    try {
-      sdf.parse(date); // Спроба розпарсити рядок як дату
-      return true; // Якщо дата правильна, повертаємо true
-    } catch (ParseException e) {
-      return false; // Якщо виникає помилка парсингу, значить дата неправильна
-    }
-  }
   // Метод для перевірки, чи є логін унікальним
   public static boolean isLoginUnique(List<User> users, String login) {
     return users.stream().noneMatch(user -> user.getUsername().equalsIgnoreCase(login));
@@ -41,11 +25,6 @@ public class ValidationService {
   // Валідація для перевірки правильності формату категорії
   public static boolean isValidCategoryName(String name) {
     return isNotEmpty(name) && name.length() <= 255;
-  }
-
-  // Метод для перевірки, чи є категорія з такою назвою
-  public static boolean isCategoryNameUnique(List<Category> categories, String name) {
-    return categories.stream().noneMatch(category -> category.getName().equalsIgnoreCase(name));
   }
 
   // Валідація для перевірки правильності введення імені (не порожній рядок та містить хоча б одну букву)
