@@ -1,7 +1,6 @@
 package com.parkcontrol.service.operations;
 
 import com.parkcontrol.domain.model.Category;
-import com.parkcontrol.domain.model.ParkingTicket;
 import com.parkcontrol.domain.model.ParkingSpot;
 import com.parkcontrol.service.util.JsonDataReader;
 import com.parkcontrol.service.util.FileUtil;

@@ -1,16 +1,12 @@
 package com.parkcontrol.service.operations;
 
 import com.parkcontrol.domain.model.ParkingSpot;
-import com.parkcontrol.domain.model.ParkingTicket;
 import com.parkcontrol.domain.model.Category;
 import com.parkcontrol.domain.model.User;
 import com.parkcontrol.service.util.JsonDataReader;
 import com.parkcontrol.service.util.FileUtil;
 import com.parkcontrol.domain.validation.UserInputHandler;
-
-import java.io.IOException;
 import java.util.List;
-import java.util.UUID;
 
 public class DeleteService {
 

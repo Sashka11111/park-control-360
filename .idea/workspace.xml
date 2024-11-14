@@ -4,32 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9107911f-d5a6-45b1-a32b-624734e1ac5f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/domain/validation/CategoryValidationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/domain/validation/ParkingSpotValidationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/domain/validation/ParkingTicketValidationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/util/ObjectMapperConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+    <list default="true" id="9107911f-d5a6-45b1-a32b-624734e1ac5f" name="Changes" comment="norm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/categories.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/categories.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parking_spots.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/parking_spots.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/parking_tickets.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/parking_tickets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/users.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/domain/model/ParkingTicket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/domain/model/ParkingTicket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/domain/validation/UserInputHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/domain/validation/UserInputHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/domain/validation/ValidationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/domain/validation/UserValidationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/presentation/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/presentation/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/presentation/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/presentation/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/service/ParkingSpotService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/ParkingSpotService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/domain/validation/ParkingSpotValidationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/domain/validation/ParkingSpotValidationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/domain/validation/ParkingTicketValidationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/domain/validation/ParkingTicketValidationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/service/ParkingTicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/ParkingTicketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/service/operations/AuthorizationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/operations/AuthorizationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/service/operations/DeleteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/operations/DeleteService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/service/operations/EditService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/operations/EditService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/service/operations/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/operations/RegistrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/service/util/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/util/FileUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/parkcontrol/service/util/JsonDataReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/parkcontrol/service/util/JsonDataReader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,26 +40,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/1/IdeaProjects/ParkControl/libs/jackson-datatype-jdk8-2.18.1.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/1/IdeaProjects/ParkControl/libs/jackson-datatype-jdk8-2.18.1.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\1\IdeaProjects\ParkControl\libs" />
@@ -110,7 +93,8 @@
       <workItem from="1731428336880" duration="1275000" />
       <workItem from="1731437930372" duration="6216000" />
       <workItem from="1731509054398" duration="684000" />
-      <workItem from="1731514711251" duration="13559000" />
+      <workItem from="1731514711251" duration="13925000" />
+      <workItem from="1731566228014" duration="371000" />
     </task>
     <task id="LOCAL-00001" summary="😢">
       <option name="closed" value="true" />
@@ -120,7 +104,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731424545928</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="norm">
+      <option name="closed" value="true" />
+      <created>1731534877579</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731534877579</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +120,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="norm" />
+    <option name="LAST_COMMIT_MESSAGE" value="norm" />
   </component>
 </project>

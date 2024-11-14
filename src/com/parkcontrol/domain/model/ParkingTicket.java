@@ -33,7 +33,6 @@ public class ParkingTicket {
     this.expired = expired; // Встановлення статусу "прострочено"
   }
 
-
   // Конструктор без параметрів (для десеріалізації JSON)
   public ParkingTicket() {
   }

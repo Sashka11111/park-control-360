@@ -13,11 +13,6 @@ public class ParkingSpotValidationService {
     return parkingSpots.stream().noneMatch(spot -> spot.getSpotNumber() == spotNumber);
   }
 
-  // Перевірка коректності ставки за годину (має бути більше 0)
-  public static boolean isValidRatePerHour(double ratePerHour) {
-    return ratePerHour > 0;
-  }
-
   // Перевірка, чи існує категорія з вказаним ID
   public static boolean isCategoryValid(List<Category> categories, UUID categoryId) {
     return categories != null && categoryId != null &&
@@ -27,11 +22,6 @@ public class ParkingSpotValidationService {
   // Перевірка, чи список паркувальних місць не порожній
   public static boolean isParkingSpotsListValid(List<ParkingSpot> parkingSpots) {
     return parkingSpots != null && !parkingSpots.isEmpty();
-  }
-
-  // Перевірка, чи список категорій не порожній
-  public static boolean isCategoriesListValid(List<Category> categories) {
-    return categories != null && !categories.isEmpty();
   }
 
   // Перевірка, чи номер місця є коректним
